@@ -35,6 +35,6 @@ jobs:
           context: modules/$TOOL_NAME
           file: recipes/docker/$TOOL_NAME-base.Dockerfile
           push: true
-          tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ PIPELINE_NAME }}:${{ container_tag }}
+          tags: "${{ vars.DOCKERHUB_USERNAME }}/$PIPELINE_NAME:$container_tag"
       - run: echo "This job's status is ${{ job.status }}."
 

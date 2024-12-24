@@ -21,8 +21,6 @@ jobs:
           cd modules/$TOOL_NAME
           current_commit=$(git rev-parse HEAD)
           echo "COMMIT: $current_commit"
-          git show-ref --tags
-          git --version
           git_tag=$(git show-ref --tags | grep $current_commit | awk '{print $2}' | sed -e 's|refs/tags/||g')
           echo "TAG: $git_tag"
           echo "container_tag=$git_tag-base" >> $GITHUB_ENV

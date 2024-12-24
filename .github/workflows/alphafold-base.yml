@@ -33,7 +33,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          context: modules/${{ TOOL_NAME }}
+          context: modules/${{ env.TOOL_NAME }}
           file: recipes/docker/${{ env.TOOL_NAME }}-${{ env.container_tag }}.Dockerfile
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ env.PIPELINE_NAME }}:${{ env.TOOL_NAME }}-${{ env.container_tag }}

@@ -34,6 +34,6 @@ jobs:
           context: modules/$TOOL_NAME
           file: recipes/docker/$TOOL_NAME-base.Dockerfile
           push: true
-          tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ github.actor }}:$container_tag
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ github.repository }}:$container_tag
       - run: echo "This job's status is ${{ job.status }}."
 

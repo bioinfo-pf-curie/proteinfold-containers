@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
 
 env:
+  PIPELINE_NAME: "proteinfold"
   TOOL_NAME: "alphafold"
 
 jobs:

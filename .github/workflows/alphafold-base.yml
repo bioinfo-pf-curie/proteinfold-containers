@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-  tool_name: "alphafold"
+  TOOL_NAME: "alphafold"
 
 jobs:
   build_alphafold:
@@ -17,7 +17,7 @@ jobs:
           submodules: recursive
       - name: Get version
         run: |
-          cd modules/${tool_name}
+          cd modules/$TOOL_NAME
           current_commit=$(git rev-parse HEAD)
           git_tag=$(git show-ref --tags | grep ${current_commit} | awk '{print $2}' | sed -e 's|refs/tags/||g')
           echo "container_tag=${git_tag}-base" >> $GITHUB_ENV
@@ -31,8 +31,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          context: modules/$tool_name
-          file: recipes/docker/${{ tool_name }}-base.Dockerfile
+          context: modules/$TOOL_NAME
+          file: recipes/docker/$TOOL_NAME-base.Dockerfile
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ github.actor }}:$container_tag
       - run: echo "This job's status is ${{ job.status }}."

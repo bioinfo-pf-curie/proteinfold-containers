@@ -1,3 +1,6 @@
 [submodule "modules/alphafold"]
 	path = modules/alphafold
 	url = https://github.com/google-deepmind/alphafold.git
+[submodule "modules/AFmassive"]
+	path = modules/AFmassive
+	url = https://github.com/GBLille/AFmassive.git

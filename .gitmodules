@@ -10,3 +10,6 @@
 [submodule "modules/alphafill"]
 	path = modules/alphafill
 	url = https://github.com/PDB-REDO/alphafill
+[submodule "modules/colabfold"]
+	path = modules/colabfold
+	url = https://github.com/sokrypton/ColabFold.git

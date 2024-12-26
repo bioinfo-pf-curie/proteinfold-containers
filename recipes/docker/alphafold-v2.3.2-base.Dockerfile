@@ -14,7 +14,7 @@
 
 ARG CUDA=11.6.2
 ARG CONDA_RELEASE=py38_23.11.0-1
-FROM nvidia/cuda:${CUDA}-cudnn8-runtime-ubuntu20.04
+FROM docker.io/nvidia/cuda:${CUDA}-cudnn8-runtime-ubuntu20.04
 # FROM directive resets ARGS, so we specify again (the value is retained if
 # previously set).
 ARG CUDA

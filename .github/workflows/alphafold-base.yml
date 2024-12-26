@@ -8,7 +8,7 @@ env:
   TOOL_NAME: "alphafold"
 
 jobs:
-  build_alphafold:
+  build_container:
     if: vars.BUILD_CONTAINER == 'true' 
     runs-on: ubuntu-latest
     steps:

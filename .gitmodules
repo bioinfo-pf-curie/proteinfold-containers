@@ -7,3 +7,6 @@
 [submodule "modules/alphafold3"]
 	path = modules/alphafold3
 	url = https://github.com/google-deepmind/alphafold3.git
+[submodule "modules/alphafill"]
+	path = modules/alphafill
+	url = https://github.com/PDB-REDO/alphafill

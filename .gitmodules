@@ -13,3 +13,6 @@
 [submodule "modules/colabfold"]
 	path = modules/colabfold
 	url = https://github.com/sokrypton/ColabFold.git
+[submodule "modules/diffdock"]
+	path = modules/diffdock
+	url = https://github.com/gcorso/DiffDock.git

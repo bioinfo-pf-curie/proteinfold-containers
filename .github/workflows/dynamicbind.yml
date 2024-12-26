@@ -25,7 +25,6 @@ jobs:
           git_tag=$(git show-ref --tags | grep $current_commit | awk '{print $2}' | sed -e 's|refs/tags/||g')
           echo "$git_tag" > version-info.txt
           echo "container_tag=$git_tag-base" >> $GITHUB_ENV
-          cp ../../recipes/dependencies/$TOOL_NAME/* .
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:

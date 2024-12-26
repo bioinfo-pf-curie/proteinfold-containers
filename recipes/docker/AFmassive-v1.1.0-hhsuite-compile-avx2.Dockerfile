@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM docker.io/4geniac/proteinfold/afmassive-v1.1.0-base AS devel
+FROM docker.io/4geniac/proteinfold/AFmassive-v1.1.0-base AS devel
 
 # Use bash to support string substitution.
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -39,7 +39,7 @@ RUN git clone --branch v3.3.0 https://github.com/soedinglab/hh-suite.git /tmp/hh
     && popd \
     && rm -rf /tmp/hh-suite
 
-FROM docker.io/4geniac/proteinfold/afmassive-v1.1.0-base
+FROM docker.io/4geniac/proteinfold/AFmassive-v1.1.0-base
 
 COPY --from=devel /opt/hhsuite/ /opt/hhsuite/
 

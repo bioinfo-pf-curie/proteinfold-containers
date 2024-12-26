@@ -56,6 +56,9 @@ RUN pip install -r requirements-${TOOL_VERSION}-step1.txt \
   && pip install -r requirements-${TOOL_VERSION}-step2.txt \
   && pip cache purge
 
+RUN mamba install prody=2.2.0 \
+ && mamba clean --all
+
 ################################
 # Stage 2: Runtime Environment #
 ################################

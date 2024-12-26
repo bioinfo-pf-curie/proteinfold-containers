@@ -19,9 +19,8 @@ jobs:
       - name: Get version
         run: |
           cd modules/$TOOL_NAME
-          current_commit=$(git rev-parse HEAD)
           git fetch --tags
-          git_tag=$(git show-ref --tags | grep $current_commit | awk '{print $2}' | sed -e 's|refs/tags/||g')
+          git_tag=$(git describe --tags)
           echo "$git_tag" > version-info.txt
           echo "container_tag=$git_tag-base" >> $GITHUB_ENV
       - name: Log in to Docker Hub

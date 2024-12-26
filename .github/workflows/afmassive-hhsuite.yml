@@ -5,7 +5,7 @@ on:
 
 env:
   PIPELINE_NAME: "proteinfold"
-  TOOL_NAME: "AFmassive"
+  TOOL_NAME: "afmassive"
 
 jobs:
   build_container:

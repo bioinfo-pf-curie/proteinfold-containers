@@ -16,3 +16,6 @@
 [submodule "modules/diffdock"]
 	path = modules/diffdock
 	url = https://github.com/gcorso/DiffDock.git
+[submodule "modules/dynamicbind"]
+	path = modules/dynamicbind
+	url = https://github.com/luwei0917/DynamicBind.git

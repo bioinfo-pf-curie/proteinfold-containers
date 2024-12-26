@@ -30,7 +30,6 @@ dependencies:
   - brotli-python=1.1.0=py38h17151c0_1
   - bzip2=1.0.8=hd590300_5
   - c-ares=1.26.0=hd590300_0
-  - c-blosc2=2.13.2=hb4ffafa_0
   - c-compiler=1.7.0=hd590300_0
   - ca-certificates=2024.2.2=hbcca054_0
   - cached-property=1.5.2=hd8ed1ab_1
@@ -236,7 +235,6 @@ dependencies:
   - pygments=2.17.2=pyhd8ed1ab_0
   - pyparsing=3.1.1=pyhd8ed1ab_0
   - pysocks=1.7.1=pyha2e5f31_6
-  - pytables=3.8.0=py38h606e206_4
   - python=3.8.18=hd12c33a_1_cpython
   - python-constraint=1.4.0=py_0
   - python-dateutil=2.8.2=pyhd8ed1ab_0

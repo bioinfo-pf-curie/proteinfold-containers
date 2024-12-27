@@ -19,3 +19,6 @@
 [submodule "modules/dynamicbind"]
 	path = modules/dynamicbind
 	url = https://github.com/luwei0917/DynamicBind.git
+[submodule "modules/openfold"]
+	path = modules/openfold
+	url = https://github.com/aqlaboratory/openfold.git

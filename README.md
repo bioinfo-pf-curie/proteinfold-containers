@@ -58,8 +58,8 @@ Connect on GitHub:
 - click on the workflow you want to launch
 - click on the button `Run workflow`, and again on the green button with the same name
 
-[Actions wkl](docs/actions-wkl.png)
+![Actions wkl](docs/actions-wkl.png)
 
-[Actions run wkl](docs/actions-run-wkl.png)
+![Actions run wkl](docs/actions-run-wkl.png)
 
 One completed, the `openfold-v.2.1.0-base` tag will be available in [4geniac/proteinfold](https://hub.docker.com/r/4geniac/proteinfold) on Docker Hub.

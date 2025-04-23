@@ -22,3 +22,6 @@
 [submodule "modules/openfold"]
 	path = modules/openfold
 	url = https://github.com/aqlaboratory/openfold.git
+[submodule "modules/alphabridge"]
+	path = modules/alphabridge
+	url = https://github.com/bioinfo-pf-curie/AlphaBridge.git

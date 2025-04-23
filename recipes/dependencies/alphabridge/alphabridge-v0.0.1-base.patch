@@ -1,0 +1,13 @@
+diff --git a/environment.yml b/environment.yml
+index 6ed26ff..71e491e 100644
+--- a/environment.yml
++++ b/environment.yml
+@@ -3,7 +3,7 @@ channels:
+- districtdatalabs
+- anaconda
+- conda-forge
+- - defaults
++ - nodefaults
+dependencies:
+- _libgcc_mutex=0.1
+- _openmp_mutex=4.5

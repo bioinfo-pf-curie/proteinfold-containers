@@ -26,3 +26,6 @@
 	path = modules/alphabridge
 	url = https://github.com/bioinfo-pf-curie/AlphaBridge.git
 
+[submodule "modules/boltz"]
+	path = modules/boltz
+	url = https://github.com/jwohlwend/boltz

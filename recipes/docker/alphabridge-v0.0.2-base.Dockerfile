@@ -36,7 +36,7 @@ COPY . /app/AlphaBridge
 
 WORKDIR /app/AlphaBridge
 
-RUN patch -p1 < alphabridge-v0.0.1-base.patch
+RUN patch -p1 < alphabridge-v0.0.2-base.patch
 
 RUN /opt/conda/bin/conda env create -f environment.yml -n AlphaBridge
 

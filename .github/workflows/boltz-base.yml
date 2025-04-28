@@ -36,7 +36,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: modules/${{ env.TOOL_NAME }}
-          file: recipes/docker/${{ env.TOOL_NAME }}-${{ env.CONTAINER_TAG }}.Dockerfile
+          file: recipes/docker/${{ env.TOOL_NAME }}-${{ env.CONTAINER_TAG }}-base.Dockerfile
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ env.PIPELINE_NAME }}:${{ env.TOOL_NAME }}-${{ env.CONTAINER_TAG }}
       - run: echo "This job's status is ${{ job.status }}."

@@ -6,7 +6,8 @@ on:
 env:
   PIPELINE_NAME: "proteinfold"
   TOOL_NAME: "boltz"
-
+  CONTAINER_TAG: "v1.0.0"
+  
 jobs:
   build_container:
     if: vars.BUILD_CONTAINER == 'true' 
@@ -35,7 +36,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: modules/${{ env.TOOL_NAME }}
-          file: recipes/docker/${{ env.TOOL_NAME }}/Dockerfile
+          file: recipes/docker/${{ env.TOOL_NAME }}-${{ env.CONTAINER_TAG }}.Dockerfile
           push: true
-          tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ env.PIPELINE_NAME }}:${{ env.TOOL_NAME }}-${{ env.container_tag }}
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ env.PIPELINE_NAME }}:${{ env.TOOL_NAME }}-${{ env.CONTAINER_TAG }}
       - run: echo "This job's status is ${{ job.status }}."

@@ -1,13 +1,14 @@
 diff --git a/environment.yml b/environment.yml
-index 6ed26ff..71e491e 100644
+index c617a0c..c4fe235 100644
 --- a/environment.yml
 +++ b/environment.yml
-@@ -3,7 +3,7 @@ channels:
-   - districtdatalabs
-   - anaconda
+@@ -1,7 +1,8 @@
+ name: alphabridge
+ channels:
++  - anaconda
    - conda-forge
 -  - defaults
 +  - nodefaults
  dependencies:
-   - _libgcc_mutex=0.1
-   - _openmp_mutex=4.5
+   - _libgcc_mutex>=0.1
+   - _openmp_mutex>=5.1

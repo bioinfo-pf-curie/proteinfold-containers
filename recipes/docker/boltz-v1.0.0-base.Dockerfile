@@ -13,3 +13,9 @@ WORKDIR ~
 RUN apt autoremove -y && apt remove --purge -y wget git && apt clean -y
 RUN rm -rf /var/lib/apt/lists/* /root/.cache
 
+WORKDIR /app/boltz
+RUN echo $'#!/bin/bash\n\
+python /app/boltz/run_boltz.py "$@"' > /app/boltz run_boltz.sh \
+  && chmod +x /app/boltz run_boltz.sh
+
+ENTRYPOINT ["/app/run_boltz.sh"]

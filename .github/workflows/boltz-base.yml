@@ -6,8 +6,7 @@ on:
 env:
   PIPELINE_NAME: "proteinfold"
   TOOL_NAME: "boltz"
-  CONTAINER_TAG: "v1.0.0"
-  
+    
 jobs:
   build_container:
     if: vars.BUILD_CONTAINER == 'true' 
@@ -20,9 +19,7 @@ jobs:
       - name: Get version
         run: |
           cd modules/$TOOL_NAME
-          current_commit=$(git rev-parse HEAD)
-          git fetch --tags
-          git_tag=$(git show-ref --tags | grep $current_commit | awk '{print $2}' | sed -e 's|refs/tags/||g')
+          git_tag=$(git tag -l | tail -1)
           echo "$git_tag" > version-info.txt
           echo "container_tag=$git_tag-base" >> $GITHUB_ENV
       - name: Log in to Docker Hub
@@ -36,7 +33,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: modules/${{ env.TOOL_NAME }}
-          file: recipes/docker/${{ env.TOOL_NAME }}-${{ env.CONTAINER_TAG }}-base.Dockerfile
+          file: recipes/docker/${{ env.TOOL_NAME }}-${{ env.container_tag }}.Dockerfile
           push: true
-          tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ env.PIPELINE_NAME }}:${{ env.TOOL_NAME }}-${{ env.CONTAINER_TAG }}
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ env.PIPELINE_NAME }}:${{ env.TOOL_NAME }}-${{ env.container_tag }}
       - run: echo "This job's status is ${{ job.status }}."

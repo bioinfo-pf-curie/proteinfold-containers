@@ -51,4 +51,5 @@ python /app/AlphaBridge/define_interfaces.py "$@"' > /app/define_interfaces.sh \
 && echo 'conda activate AlphaBridge' >> ~/.bashrc \
 && cp ~/.bashrc /opt/etc/bashrc
 
+ENV LC_ALL C
 ENTRYPOINT ["/app/define_interfaces.sh"]

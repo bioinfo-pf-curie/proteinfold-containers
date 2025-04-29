@@ -19,9 +19,12 @@ jobs:
       - name: Get version
         run: |
           cd modules/$TOOL_NAME
-          git_tag=$(git tag -l | tail -1)
+          current_commit=$(git rev-parse HEAD)
+          git fetch --tags
+          git_tag=$(git show-ref --tags | grep $current_commit | awk '{print $2}' | sed -e 's|refs/tags/||g')
           echo "$git_tag" > version-info.txt
           echo "container_tag=$git_tag-base" >> $GITHUB_ENV
+          cp ../../recipes/dependencies/$TOOL_NAME/* .
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:

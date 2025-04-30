@@ -14,7 +14,7 @@
 
 FROM ubuntu:24.04
 
-RUN apt update && apt install -y patch wget imagemagick
+RUN apt update && apt install -y patch wget imagemagick liblapack3 liblapack-dev libatlas-base-dev
 
 ARG CONDA_RELEASE=23.3.1-1
 
@@ -51,5 +51,7 @@ python /app/AlphaBridge/define_interfaces.py "$@"' > /app/define_interfaces.sh \
 && echo 'conda activate AlphaBridge' >> ~/.bashrc \
 && cp ~/.bashrc /opt/etc/bashrc
 
-ENV LC_ALL C
+ENV LC_ALL=C
+ENV BASH_ENV=/opt/etc/bashrc
+ENV PATH=$PATH:/app
 ENTRYPOINT ["/app/define_interfaces.sh"]

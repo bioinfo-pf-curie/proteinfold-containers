@@ -1,6 +1,6 @@
 FROM docker.io/nvidia/cuda:12.6.0-base-ubuntu24.04
 
-RUN apt update && DEBIAN_FRONTEND=noninteractive apt install --no-install-recommends -y  wget gcc g++ git build-essential libssl-dev pip python3.12-venv python3.12-full pipx
+RUN apt update && DEBIAN_FRONTEND=noninteractive apt install --no-install-recommends -y  wget gcc g++ git build-essential libssl-dev pip python3.12-venv python3.12-full pipx libpython3.12-dev
 WORKDIR /opt/
 RUN git clone https://github.com/jwohlwend/boltz.git
 WORKDIR /opt/boltz

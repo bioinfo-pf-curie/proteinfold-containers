@@ -27,6 +27,7 @@ RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
         cuda-command-line-tools-$(cut -f1,2 -d- <<< ${CUDA//./-}) \
         wget \
+        patch \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get autoremove -y \
     && apt-get clean

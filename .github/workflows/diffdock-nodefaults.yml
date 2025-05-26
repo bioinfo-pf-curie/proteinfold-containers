@@ -1,5 +1,5 @@
-name: DiffDock base
-run-name: Build DiffDock base container
+name: DiffDock nodefaults
+run-name: Build DiffDock nodefaults container
 on:
   workflow_dispatch:
 
@@ -23,7 +23,7 @@ jobs:
           git fetch --tags
           git_tag=$(git show-ref --tags | grep $current_commit | awk '{print $2}' | sed -e 's|refs/tags/||g')
           echo "$git_tag" > version-info.txt
-          echo "container_tag=$git_tag-base" >> $GITHUB_ENV
+          echo "container_tag=$git_tag-nodefaults" >> $GITHUB_ENV
           cp ../../recipes/dependencies/$TOOL_NAME/* .
       - name: Log in to Docker Hub
         uses: docker/login-action@v3

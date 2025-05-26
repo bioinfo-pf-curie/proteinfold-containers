@@ -1,0 +1,17 @@
+name: diffdock
+channels:
+  - pyg
+  - nvidia
+  - pytorch
+  - conda-forge
+  - nodefaults
+  - anaconda
+dependencies:
+  - python=3.9.18
+  - pip
+  # Need to install torch in order to build openfold, so install it first
+  - pip:
+    - --extra-index-url https://download.pytorch.org/whl/cu117
+    - --find-links https://pytorch-geometric.com/whl/torch-1.13.1+cu117.html
+    - torch==1.13.1+cu117
+    - setuptools==69.5.1

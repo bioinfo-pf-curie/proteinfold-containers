@@ -1,0 +1,14 @@
+diff --git a/environment.yml b/environment.yml
+index fdeb3b3..01ab8f4 100644
+--- a/environment.yml
++++ b/environment.yml
+@@ -4,7 +4,8 @@ channels:
+   - pytorch
+   - nvidia
+   - conda-forge
+-  - defaults
++  - nodefaults
++  - anaconda
+ dependencies:
+   - _libgcc_mutex=0.1=conda_forge
+   - _openmp_mutex=4.5=2_kmp_llvm

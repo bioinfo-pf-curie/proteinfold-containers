@@ -42,8 +42,9 @@ RUN wget -P /tmp \
 ENV PATH="/opt/conda/bin:$PATH"
 
 # Install conda environment for structural DynamicBind
-RUN patch -p1 < dynamicbind-v1.0-nodefaults.patch
 COPY environment.yml environment.yml 
+COPY dynamicbind-v1.0-nodefaults.patch dynamicbind-v1.0-nodefaults.patch 
+RUN patch -p1 < dynamicbind-v1.0-nodefaults.patch
 RUN mamba env update --file environment.yml --prefix /opt/conda/envs/dynamicbind \
  && mamba clean --all
 

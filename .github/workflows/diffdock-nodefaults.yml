@@ -18,8 +18,6 @@ jobs:
           submodules: recursive
       - name: Get version
         run: |
-          docker system prune -af
-          docker builder prune -af
           cd modules/$TOOL_NAME
           current_commit=$(git rev-parse HEAD)
           git fetch --tags
@@ -41,5 +39,6 @@ jobs:
           file: recipes/docker/${{ env.TOOL_NAME }}-${{ env.container_tag }}.Dockerfile
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ env.PIPELINE_NAME }}:${{ env.TOOL_NAME }}-${{ env.container_tag }}
+          no-cache: true
       - run: echo "This job's status is ${{ job.status }}."
 

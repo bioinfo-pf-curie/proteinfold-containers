@@ -18,8 +18,6 @@ jobs:
           submodules: recursive
       - name: Get version
         run: |
-          docker system prune -af
-          docker builder prune -af
           cp recipes/conda/dynamicbind-relax-nodefaults.yml modules/$TOOL_NAME
           cd modules/$TOOL_NAME
           current_commit=$(git rev-parse HEAD)

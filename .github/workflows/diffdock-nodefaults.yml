@@ -18,6 +18,8 @@ jobs:
           submodules: recursive
       - name: Get version
         run: |
+          docker system prune -af
+          docker builder prune -af
           cd modules/$TOOL_NAME
           current_commit=$(git rev-parse HEAD)
           git fetch --tags

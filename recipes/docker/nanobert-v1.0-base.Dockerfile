@@ -1,6 +1,6 @@
 FROM 4geniac/almalinux:9.5_sdk-miniforge-24.11.3-2
 
-RUN apt update && apt install -y libtiff
+RUN dnf install --setopt=fastestmirror=1 --setopt=metadata_expire=0 -y libtiff && dnf clean all
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 

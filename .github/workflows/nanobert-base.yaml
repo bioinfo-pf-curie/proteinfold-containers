@@ -18,10 +18,11 @@ jobs:
           submodules: recursive
       - name: Get version
         run: |
+          mkdir -p modules/$TOOL_NAME
           git_tag="v1.0"
           echo "$git_tag" > version-info.txt
           echo "container_tag=$git_tag-base" >> $GITHUB_ENV
-          cp recipes/conda/${TOOL_NAME}.yml .
+          cp recipes/conda/${TOOL_NAME}.yml modules/$TOOL_NAME/
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
@@ -32,6 +33,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
+          context: modules/${{ env.TOOL_NAME }}
           file: recipes/docker/${{ env.TOOL_NAME }}-${{ env.container_tag }}.Dockerfile
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ env.PIPELINE_NAME }}:${{ env.TOOL_NAME }}-${{ env.container_tag }}

@@ -1,0 +1,14 @@
+name: nanoBert_env
+channels:
+  - conda-forge
+  - pytorch
+  - nodefaults
+dependencies:
+  - pytorch=2.2.2=py3.12_cpu_0 
+  - torchvision=0.17.2=py312_cpu 
+  - torchaudio=2.2.2=py312_cpu 
+  - cpuonly=2.0=0 
+  - python=3.12.2=hab00c5b_0_cpython 
+  - absl-py=2.1.0=pyhd8ed1ab_0 
+  - transformers=4.39.3=pyhd8ed1ab_0 
+  - numpy=1.26.4=py312heda63a1_0

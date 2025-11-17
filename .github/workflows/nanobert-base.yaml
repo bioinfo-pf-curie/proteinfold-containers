@@ -1,0 +1,40 @@
+name: NanoBert base
+run-name: Build NanoBert base container
+on:
+  workflow_dispatch:
+
+env:
+  PIPELINE_NAME: "proteinfold"
+  TOOL_NAME: "nanobert"
+
+jobs:
+  build_container:
+    if: vars.BUILD_CONTAINER == 'true' 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Get version
+        run: |
+          git_tag="v1.0"
+          echo "$git_tag" > version-info.txt
+          echo "container_tag=$git_tag-base" >> $GITHUB_ENV
+          cp ../../recipes/conda/$TOOL_NAME/* .
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: modules/${{ env.TOOL_NAME }}
+          file: recipes/docker/${{ env.TOOL_NAME }}-${{ env.container_tag }}.Dockerfile
+          push: true
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/${{ env.PIPELINE_NAME }}:${{ env.TOOL_NAME }}-${{ env.container_tag }}
+      - run: echo "This job's status is ${{ job.status }}."
+

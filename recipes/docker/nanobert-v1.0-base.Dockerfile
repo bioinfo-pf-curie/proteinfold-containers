@@ -14,7 +14,10 @@ RUN conda env create -y -n nanoBert_env --file nanobert.yml
 RUN mkdir /opt/etc
 
 RUN /bin/echo -e '#! /bin/bash\n\n# script to activate the conda environment NanoBert' > ~/.bashrc \
-&& /opt/conda/bin/conda init bash \
+&& conda init bash \
 && echo 'conda activate nanoBert_env' >> ~/.bashrc \
 && cp ~/.bashrc /opt/etc/bashrc
 
+ENV LC_ALL=C
+ENV BASH_ENV=/opt/etc/bashrc
+ENV PATH=$PATH:/app

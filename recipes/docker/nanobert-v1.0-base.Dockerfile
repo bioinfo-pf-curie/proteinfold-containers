@@ -9,7 +9,7 @@ COPY . /app/NanoBert
 
 WORKDIR /app/NanoBert
 
-RUN conda create -y -n nanoBert_env && conda install -y -n nanoBert_env --file nanobert.yml
+RUN conda create -y -n nanoBert_env --file nanobert.yml
 
 RUN mkdir /opt/etc
 

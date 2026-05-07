@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM docker.io/4geniac/proteinfold:afmassive-v1.1.0-base AS devel
+FROM docker.io/4geniac/proteinfold:afmassive-v1.1.6-base AS devel
 
 # Use bash to support string substitution.
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]

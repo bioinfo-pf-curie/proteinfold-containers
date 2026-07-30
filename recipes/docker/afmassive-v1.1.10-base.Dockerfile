@@ -69,7 +69,7 @@ python /app/alphafold/run_AFmassive.py "$@"' > /app/run_afMassive.sh \
   && chmod +x /app/run_afMassive.sh \
   && /bin/echo -e '#! /bin/bash\n\n# script to activate the conda environment' > ~/.bashrc \
   && /opt/conda/bin/conda init bash \
-  && echo 'conda activate AFmassive-1.1.6' >> ~/.bashrc \
+  && echo 'conda activate AFmassive' >> ~/.bashrc \
   && cp ~/.bashrc /opt/etc/bashrc
 ENV BASH_ENV=/opt/etc/bashrc
 ENTRYPOINT ["/app/run_afMassive.sh"]

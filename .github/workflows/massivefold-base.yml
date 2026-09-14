@@ -1,5 +1,5 @@
-name: AFmassive base
-run-name: Build AFmassive base container
+name: MassifeFold base
+run-name: Build MassiveFold base container
 on:
   workflow_dispatch:
 

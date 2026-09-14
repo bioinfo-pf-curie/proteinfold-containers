@@ -32,3 +32,6 @@
 [submodule "modules/massivefold"]
 	path = modules/massivefold
 	url = https://github.com/GBLille/MassiveFold.git
+[submodule "modules/mf_alphafold3"]
+        path = modules/mf_alphafold3
+        url = https://github.com/GBLille/mf-alphafold3.git

@@ -30,5 +30,5 @@
 	path = modules/boltz
 	url = https://github.com/jwohlwend/boltz
 [submodule "modules/massivefold"]
-	path = modules/modules/massivefold
+	path = modules/massivefold
 	url = https://github.com/GBLille/MassiveFold.git
